@@ -22,11 +22,10 @@ def reverse_array(arr)
 end
 
 def kesha_maker(arr)
-  #arr.map do |item|
-  #  item[2] = "$"
-  #end
-  #return arr
-  return arr.collect{|item| item[2] = '$'}
+  arr.map do |item|
+    item[2] = "$"
+  end
+  return arr
 end
 
 def find_a(arr)
@@ -38,15 +37,20 @@ def sum_array(arr)
 end
 
 def add_s(arr)
-  return_arr = []
-  arr.map do |item|
-    if arr.index(item) != 1
-      return_arr.push(item+'s')
-    else
-      return_arr.push(item)
-    end
-  end
-  return return_arr
+  #return_arr = []
+  #arr.map do |item|
+  #  if arr.index(item) != 1
+  #    return_arr.push(item+'s')
+  #  else
+  #    return_arr.push(item)
+  #  end
+  #end
+  #return return_arr
+
+ a = arr.each_with_index.collect{|el,index| el+'s' if index!=1}
+ return a.insert(1,arr[1]).compact
+
+
 end
 
 
